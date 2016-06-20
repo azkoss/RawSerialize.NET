@@ -78,7 +78,7 @@ namespace RawSerialize
 			int size = Marshal.SizeOf(typeof(T));
 			byte[] rawData = new byte[size];
 			await stream.ReadAsync(rawData, 0, size);
-			return RawSerializer.GetStructFromRawData<T>(rawData);
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
 		}
 
 		/// <summary>
@@ -94,7 +94,7 @@ namespace RawSerialize
 			int size = Marshal.SizeOf(typeof(T));
 			byte[] rawData = new byte[size];
 			await stream.ReadAsync(rawData, 0, size, cancellationToken);
-			return RawSerializer.GetStructFromRawData<T>(rawData);
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
 		}
 #endif
 
@@ -114,7 +114,7 @@ namespace RawSerialize
 			int size = Marshal.SizeOf(typeof(T));
 			byte[] rawData = new byte[size];
 			stream.Read(rawData, 0, size);
-			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0, size);
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
 		}
 	}
 }

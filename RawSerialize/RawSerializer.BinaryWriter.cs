@@ -42,7 +42,7 @@ namespace RawSerialize
             int size = Marshal.SizeOf(typeof(T));
             byte[] rawData = new byte[size];
             reader.Read(rawData, 0, size);
-            return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0, size);
+            return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
         }
     }
 }

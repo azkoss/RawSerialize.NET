@@ -53,8 +53,11 @@ public static
 		{
 			byte[] data = new byte[size];
 #if USE_UNSAFE
-			TypedReference @ref = __makeref(@struct);
-			Marshal.Copy(*((IntPtr*)&@ref), data, 0, size);
+			fixed (byte* ptr = &data[0])
+			{
+				Marshal.StructureToPtr(@struct, (IntPtr)ptr, false);
+			}
+			return data;
 #else
 			GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try
@@ -88,7 +91,7 @@ public static
 	byte[] rawData)
 			where T : struct
 		{
-			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0, Marshal.SizeOf(typeof(T)));
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
 		}
 
 		/// <summary>
@@ -109,7 +112,7 @@ public static
 	byte[] rawData, int offset)
 			where T : struct
 		{
-			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, offset, Marshal.SizeOf(typeof(T)));
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, offset);
 		}
 
 		/// <summary>
@@ -127,14 +130,14 @@ public static
 #if USE_UNSAFE
 			unsafe
 #endif
-			T GetStructFromRawDataInternal<T>(byte[] rawData, int offset, int size)
+			T GetStructFromRawDataInternal<T>(byte[] rawData, int offset)
 			where T : struct
 		{
 #if USE_UNSAFE
-			T @struct = default(T);
-			TypedReference @ref = __makeref(@struct);
-			Marshal.Copy(rawData, offset, *((IntPtr*)&@ref), size);
-			return @struct;
+			fixed (byte* ptr = &rawData[offset])
+			{
+				return (T)Marshal.PtrToStructure((IntPtr)ptr, typeof(T));
+			}
 #else
 			GCHandle handle = GCHandle.Alloc(rawData, GCHandleType.Pinned);
 			try

@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawSerialize", "RawSerialize\RawSerialize.csproj", "{2EA65690-9D7E-4C8D-A89B-DCCAD47D3408}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawSerialize.Test", "RawSerialize.Test\RawSerialize.Test.csproj", "{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,22 @@ Global
 		{2EA65690-9D7E-4C8D-A89B-DCCAD47D3408}.Release-Net4-Safe|Any CPU.Build.0 = Release-Net4-Safe|Any CPU
 		{2EA65690-9D7E-4C8D-A89B-DCCAD47D3408}.Release-Net4-Unsafe|Any CPU.ActiveCfg = Release-Net4-Unsafe|Any CPU
 		{2EA65690-9D7E-4C8D-A89B-DCCAD47D3408}.Release-Net4-Unsafe|Any CPU.Build.0 = Release-Net4-Unsafe|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net2-Safe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net2-Safe|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net2-Unsafe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net2-Unsafe|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net45-Tasks-Safe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net45-Tasks-Safe|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net45-Tasks-Unsafe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net45-Tasks-Unsafe|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net4-Safe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net4-Safe|Any CPU.Build.0 = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net4-Unsafe|Any CPU.ActiveCfg = Release|Any CPU
+		{9F68D6C1-9B33-4800-B8A9-16B17C2F46DD}.Release-Net4-Unsafe|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
