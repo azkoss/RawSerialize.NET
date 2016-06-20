@@ -22,8 +22,7 @@ namespace RawSerialize
 		 * [ ] IEnumerable<byte>
 		 * [x] Stream
 		 * [x] BinaryWriter
-		 * [ ] (Stream/Text)-(Reader/-Writer)
-		 * [ ] Struct
+		 * [x] Struct Extensions
 		 */
 		
 		
@@ -34,7 +33,7 @@ namespace RawSerialize
 		/// <typeparam name="T">The type of the struct.</typeparam>
 		/// <param name="struct">The struct that should be serialized.</param>
 		/// <returns>A byte-array which contains all the raw data of the supplied struct.</returns>
-		public static unsafe byte[] GetRawData<T>(T @struct)
+		public static unsafe byte[] GetRawData<T>(this T @struct)
 			where T : struct
 		{
 			return RawSerializer.GetRawData<T>(@struct, Marshal.SizeOf(typeof(T)));
@@ -79,7 +78,7 @@ namespace RawSerialize
 		/// <typeparam name="T">The type of the struct that should be reconstructed.</typeparam>
 		/// <param name="rawData">The raw data of the struct that should be reconstructed.</param>
 		/// <returns>An instance of the struct specified by the generic parameter which was reconstructed from the supplied raw data.</returns>
-		public static unsafe T GetStructFromRawData<T>(byte[] rawData)
+		public static unsafe T GetStructFromRawData<T>(this byte[] rawData)
 			where T : struct
 		{
 			return RawSerializer.GetStructFromRawData<T>(rawData, Marshal.SizeOf(typeof(T)));
