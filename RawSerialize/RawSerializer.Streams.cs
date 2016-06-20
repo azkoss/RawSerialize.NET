@@ -3,13 +3,13 @@
 #define USE_TASKS //Provide asynchronous methods for the async/await/Task system (requires at least .NET 4.5 or a reference to the Task Parallel Library)
 
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
+
+#if USE_TASKS
 using System.Threading;
 using System.Threading.Tasks;
+#endif
 
 namespace RawSerialize
 {

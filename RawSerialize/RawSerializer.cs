@@ -3,18 +3,15 @@
 #define USE_TASKS //Provide asynchronous methods for the async/await/Task system (requires at least .NET 4.5 or a reference to the Task Parallel Library)
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
+
 #if USE_TASKS
 using System.Threading.Tasks;
 #endif
 
 namespace RawSerialize
 {
-
 	/// <summary>
 	/// Provides methods for (de-)serializing structs in/from their raw data.
 	/// </summary>
@@ -23,14 +20,14 @@ namespace RawSerialize
 		/* Read and write from:
 		 * [x] byte[]
 		 * [ ] IEnumerable<byte>
-		 * [ ] Stream
+		 * [x] Stream
 		 * [ ] BinaryWriter
 		 * [ ] (Stream/Text)-(Reader/-Writer)
 		 * [ ] Struct
 		 */
-
-
-
+		
+		
+		
 		/// <summary>
 		/// Serializes the supplied struct in a way that does not produce any data overhead.
 		/// </summary>
