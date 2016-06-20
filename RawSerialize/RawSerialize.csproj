@@ -37,6 +37,49 @@
     <DocumentationFile>bin\Release\RawSerialize.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net45-Tasks-Unsafe|AnyCPU'">
+    <OutputPath>bin\Release\Net45-Tasks-Unsafe\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DefineConstants>USE_UNSAFE;USE_INLINING;USE_TASKS;USE_EXTENSIONS</DefineConstants>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net45-Tasks-Safe|AnyCPU'">
+    <OutputPath>bin\Release\Net45-Tasks-Safe\</OutputPath>
+    <DefineConstants>USE_INLINING;USE_TASKS;USE_EXTENSIONS</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net4-Unsafe|AnyCPU'">
+    <OutputPath>bin\Release\Net4-Unsafe\</OutputPath>
+    <DefineConstants>USE_UNSAFE;USE_EXTENSIONS</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net4-Safe|AnyCPU'">
+    <OutputPath>bin\Release\Net4-Safe\</OutputPath>
+    <Optimize>true</Optimize>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <DefineConstants>USE_EXTENSIONS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net2-Safe|AnyCPU'">
+    <OutputPath>bin\Release\Net2-Safe\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Net2-Unsafe|AnyCPU'">
+    <OutputPath>bin\Release\Net2-Unsafe\</OutputPath>
+    <DefineConstants>USE_UNSAFE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -1,8 +1,4 @@
-﻿#define USE_UNSAFE //Use unsafe pointers for memory access (faster)
-#define USE_INLINING //Use aggressive inlining (usually faster; requires at least .NET 4.5)
-#define USE_TASKS //Provide asynchronous methods for the async/await/Task system (requires at least .NET 4.5 or a reference to the Task Parallel Library)
-
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -21,11 +17,15 @@ namespace RawSerialize
 		/// <typeparam name="T">The type of the struct.</typeparam>
 		/// <param name="stream">The stream that should be written to.</param>
 		/// <param name="struct">The struct that should be written to the stream.</param>
-		public static void WriteRawData<T>(this Stream stream, T @struct)
+		public static void WriteRawData<T>(
+#if USE_EXTENSIONS
+	this 
+#endif
+	Stream stream, T @struct)
 			where T : struct
 		{
 			int size = Marshal.SizeOf(typeof(T));
-			byte[] data = RawSerializer.GetRawData<T>(@struct, size);
+			byte[] data = RawSerializer.GetRawDataInternal<T>(@struct, size);
 			stream.Write(data, 0, size);
 		}
 
@@ -41,7 +41,7 @@ namespace RawSerialize
 			where T : struct
 		{
 			int size = Marshal.SizeOf(typeof(T));
-			byte[] data = RawSerializer.GetRawData<T>(@struct, size);
+			byte[] data = RawSerializer.GetRawDataInternal<T>(@struct, size);
 			await stream.WriteAsync(data, 0, size);
 		}
 
@@ -58,7 +58,7 @@ namespace RawSerialize
 		{
 			cancellationToken.ThrowIfCancellationRequested();
 			int size = Marshal.SizeOf(typeof(T));
-			byte[] data = RawSerializer.GetRawData<T>(@struct, size);
+			byte[] data = RawSerializer.GetRawDataInternal<T>(@struct, size);
 			await stream.WriteAsync(data, 0, size, cancellationToken);
 		}
 #endif
@@ -104,13 +104,17 @@ namespace RawSerialize
 		/// <typeparam name="T">The type of the struct that should be reconstructed.</typeparam>
 		/// <param name="stream">The stream that should be read from.</param>
 		/// <returns>An instance of the struct specified by the generic parameter which was reconstructed from the supplied raw data.</returns>
-		public static T ReadStructFromRawData<T>(this Stream stream)
+		public static T ReadStructFromRawData<T>(
+#if USE_EXTENSIONS
+	this
+#endif
+	Stream stream)
 			where T : struct
 		{
 			int size = Marshal.SizeOf(typeof(T));
 			byte[] rawData = new byte[size];
 			stream.Read(rawData, 0, size);
-			return RawSerializer.GetStructFromRawData<T>(rawData);
+			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0, size);
 		}
 	}
 }
