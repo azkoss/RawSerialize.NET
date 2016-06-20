@@ -19,9 +19,9 @@ namespace RawSerialize
 		/// <param name="struct">The struct that should be written to the stream.</param>
 		public static void WriteRawData<T>(
 #if USE_EXTENSIONS
-	this 
+	    this 
 #endif
-	Stream stream, T @struct)
+	    Stream stream, T @struct)
 			where T : struct
 		{
 			int size = Marshal.SizeOf(typeof(T));
@@ -106,9 +106,9 @@ namespace RawSerialize
 		/// <returns>An instance of the struct specified by the generic parameter which was reconstructed from the supplied raw data.</returns>
 		public static T ReadStructFromRawData<T>(
 #if USE_EXTENSIONS
-	this
+	    this
 #endif
-	Stream stream)
+	    Stream stream)
 			where T : struct
 		{
 			int size = Marshal.SizeOf(typeof(T));

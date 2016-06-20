@@ -20,15 +20,15 @@ namespace RawSerialize
 		/// <param name="struct">The struct that should be serialized.</param>
 		/// <returns>A byte-array which contains all the raw data of the supplied struct.</returns>
 		
-public static
+		public static
 #if USE_UNSAFE
-			unsafe
+		unsafe
 #endif
-			byte[] GetRawData<T>(
+		byte[] GetRawData<T>(
 #if USE_EXTENSIONS
-	this 
+		this 
 #endif
-	T @struct)
+		T @struct)
 			where T : struct
 		{
 			return RawSerializer.GetRawDataInternal<T>(@struct, Marshal.SizeOf(typeof(T)));
@@ -46,9 +46,9 @@ public static
 #endif
 		internal static
 #if USE_UNSAFE
-			unsafe
+		unsafe
 #endif
-			byte[] GetRawDataInternal<T>(T @struct, int size)
+		byte[] GetRawDataInternal<T>(T @struct, int size)
 			where T : struct
 		{
 			byte[] data = new byte[size];
@@ -82,13 +82,13 @@ public static
 		/// <returns>An instance of the struct specified by the generic parameter which was reconstructed from the supplied raw data.</returns>
 		public static
 #if USE_UNSAFE
-			unsafe
+		unsafe
 #endif
-			T GetStructFromRawData<T>(
+		T GetStructFromRawData<T>(
 #if USE_EXTENSIONS
-	this 
+	    this 
 #endif
-	byte[] rawData)
+	    byte[] rawData)
 			where T : struct
 		{
 			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, 0);
@@ -103,13 +103,13 @@ public static
 		/// <returns>An instance of the struct specified by the generic parameter which was reconstructed from the supplied raw data.</returns>
 		public static
 #if USE_UNSAFE
-			unsafe
+		unsafe
 #endif
-			T GetStructFromRawData<T>(
+		T GetStructFromRawData<T>(
 #if USE_EXTENSIONS
-	this 
+	    this 
 #endif
-	byte[] rawData, int offset)
+	    byte[] rawData, int offset)
 			where T : struct
 		{
 			return RawSerializer.GetStructFromRawDataInternal<T>(rawData, offset);
@@ -128,9 +128,9 @@ public static
 #endif
 		internal static
 #if USE_UNSAFE
-			unsafe
+		unsafe
 #endif
-			T GetStructFromRawDataInternal<T>(byte[] rawData, int offset)
+		T GetStructFromRawDataInternal<T>(byte[] rawData, int offset)
 			where T : struct
 		{
 #if USE_UNSAFE
