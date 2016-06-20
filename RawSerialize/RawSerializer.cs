@@ -21,7 +21,7 @@ namespace RawSerialize
 		 * [x] byte[]
 		 * [ ] IEnumerable<byte>
 		 * [x] Stream
-		 * [ ] BinaryWriter
+		 * [x] BinaryWriter
 		 * [ ] (Stream/Text)-(Reader/-Writer)
 		 * [ ] Struct
 		 */

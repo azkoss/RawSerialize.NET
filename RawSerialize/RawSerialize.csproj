@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RawSerializer.BinaryWriter.cs" />
     <Compile Include="RawSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
